@@ -11,6 +11,15 @@ spec:
     image: ikulyk404/todoapp:3.0.0
     ports:
     - containerPort: 8080
+    env:
+        - name: SECRET_KEY
+          value: "insecure-secret-key-for-dev"
+        - name: ALLOWED_HOSTS
+          value: "*"
+        - name: PYTHONUNBUFFERED
+          value: "1"
+        - name: READINESS_DELAY 
+          value: "10"
     livenessProbe:
       httpGet:
         path: api/health
@@ -39,6 +48,15 @@ spec:
     image: ikulyk404/todoapp:3.0.0
     ports:
     - containerPort: 8080
+    env:
+        - name: SECRET_KEY
+          value: "insecure-secret-key-for-dev"
+        - name: ALLOWED_HOSTS
+          value: "*"
+        - name: PYTHONUNBUFFERED
+          value: "1"
+        - name: READINESS_DELAY 
+          value: "10"
     livenessProbe:
       httpGet:
         path: api/health
